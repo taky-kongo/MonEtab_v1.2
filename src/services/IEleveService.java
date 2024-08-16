@@ -8,9 +8,9 @@ public interface IEleveService {
 
     Eleve save(Eleve eleve);
 
-    Eleve update(Eleve eleve);
+    void update(Eleve eleve);
 
-    void delete(int identifiant);
+    boolean delete(int identifiant);
 
     List<Eleve> getAllEleve();
 

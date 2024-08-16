@@ -35,6 +35,9 @@ public class Professeur extends Personne {
         this.sujetProchaineReunion = sujetProchaineReunion;
     }
 
+    public Professeur(Date dateNaissance, String ville, String prenom, String nom, boolean vacant) {
+    }
+
     // Les getters et les setters
 
     public int getId() {
@@ -45,8 +48,8 @@ public class Professeur extends Personne {
         super.setId(id);
     }
 
-    public Date getDateNaissance() {
-        return super.getDateNaissance();
+    public java.sql.Date getDateNaissance() {
+        return (java.sql.Date) super.getDateNaissance();
     }
 
     public void setDateNaissance(Date dateNaissance) {
@@ -124,14 +127,12 @@ public class Professeur extends Personne {
      * @param professeur à ajouter
      * @return le professeur qui a été ajouté
      */
-    /*
+
     public Professeur ajouter(Professeur professeur) {
 
         boolean continuer = false;
-        int idAuto = 0;
         do {
             Date dateNaissance;
-            int id =++idAuto;
             while (true) {
                 System.out.print("Date Naissance au (format: jj-mm-aaaa): ");
                 String dateNaissanceString = sc.nextLine();
@@ -152,7 +153,7 @@ public class Professeur extends Personne {
             System.out.print("Vacant: ");
             boolean vacant = sc.nextBoolean();
 
-            professeur = new Professeur(id, dateNaissance, ville, prenom, nom, vacant);
+            professeur = new Professeur(dateNaissance, ville, prenom, nom, vacant);
 
             System.out.println("\nLes informations du professeur\n");
 
@@ -183,7 +184,7 @@ public class Professeur extends Personne {
 
         return professeur;
 
-    }*/
+    }
 
     /**
      * Affiche les informations du professeur

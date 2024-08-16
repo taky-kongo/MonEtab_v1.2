@@ -2,6 +2,7 @@ import models.Eleve;
 import models.Professeur;
 import models.Utilisateur;
 import services.IUtilisateurServive;
+import services.impl.EleveServiceImpl;
 import services.impl.UtilisateurServiceImpl;
 
 import java.sql.SQLException;
@@ -121,7 +122,7 @@ public class Main {
 
             switch (choix) {
                 case 1:
-                    //professeur.ajouter(professeur);
+                    professeur.ajouter(professeur);
                     break;
                 case 2:
                     while (true) {
@@ -162,6 +163,7 @@ public class Main {
      * Permet de gérer le menu eleve
      */
     public static void gererEleve() {
+        EleveServiceImpl eleveServiceImpl = new EleveServiceImpl();
         Scanner sc = new Scanner(System.in);
         Eleve eleve = new Eleve();
 
@@ -193,10 +195,10 @@ public class Main {
                     break;
                 case 2:
                     while (true) {
-                        System.out.println("Entrer l'iddentifiant de l'élève à supprimer");
+                        System.out.println("Entrer l'identifiant de l'élève à supprimer");
                         int identifiant = sc.nextInt();
                         sc.nextLine();
-                        //eleve.supprimer(identifiant);
+                        boolean value = eleveServiceImpl.delete(identifiant);
                         System.out.println("Voulez vous supprimer un autre élève ? Entrez o pour supprimer à nouveau");
                         String decision = sc.nextLine().toLowerCase();
                         if (decision.equals("o")) {

@@ -8,9 +8,9 @@ public interface IEleveDao {
 
     Eleve ajouter(Eleve eleve);
 
-    Eleve modifier(Eleve eleve);
+    void modifier(Eleve eleve);
 
-    void supprimer(int identifiant);
+    boolean supprimer(int identifiant);
 
     List<Eleve> obtenirEleve();
 

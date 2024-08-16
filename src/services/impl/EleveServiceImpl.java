@@ -1,24 +1,30 @@
 package services.impl;
 
+import dao.Impl.EleveDaoImpl;
 import models.Eleve;
 import services.IEleveService;
 
 import java.util.List;
 
 public class EleveServiceImpl implements IEleveService {
+
+    private final EleveDaoImpl eleveDaoImpl;
+
+    public EleveServiceImpl(){
+        this.eleveDaoImpl = new EleveDaoImpl();
+    }
     @Override
     public Eleve save(Eleve eleve) {
         return null;
     }
 
     @Override
-    public Eleve update(Eleve eleve) {
-        return null;
+    public void update(Eleve eleve) {
     }
 
     @Override
-    public void delete(int identifiant) {
-
+    public boolean delete(int identifiant) {
+        return this.eleveDaoImpl.supprimer(identifiant);
     }
 
     @Override
