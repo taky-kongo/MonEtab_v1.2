@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Élèves - Mon ETAB</title>
+    <style>
+        /* Styles globaux */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 100vh;
+        }
+
+        /* Conteneur principal */
+        .container {
+            display: flex;
+            width: 100%;
+        }
+
+        /* Menu latéral */
+        .sidebar {
+            background-color: #2c3e50;
+            color: white;
+            width: 250px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border-right: 2px solid #34495e; /* Trait vertical de séparation */
+        }
+
+        .sidebar h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .sidebar nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .sidebar nav ul li {
+            margin: 15px 0;
+        }
+
+        .sidebar nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .sidebar nav ul li a i {
+            margin-right: 10px;
+        }
+
+        .logout {
+            text-align: center;
+        }
+
+        .logout a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        /* Contenu principal */
+        .main-content {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .main-content h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        /* Styles du tableau */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #34495e;
+            color: white;
+        }
+
+        /* Boutons d'action */
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-modifier {
+            background-color: #3498db;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .btn-supprimer {
+            background-color: #e74c3c;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Conteneur principal -->
+    <div class="container">
+        <!-- Menu latéral -->
+        <aside class="sidebar">
+            <h2>Mon ETAB</h2>
+            <nav>
+                <ul>
+                    <li><a href="#"><i class="icon-eleves">&#x1F466;</i> Élèves</a></li>
+                    <li><a href="#"><i class="icon-professeurs">&#x1F464;</i> Professeurs</a></li>
+                    <li><a href="#"><i class="icon-utilisateurs">&#x1F465;</i> Utilisateurs</a></li>
+                    <li><a href="#"><i class="icon-rapport">&#x1F4C4;</i> Rapport</a></li>
+                </ul>
+            </nav>
+            <div class="logout">
+                <a href="#"><i class="icon-deconnexion">&#x1F6AA;</i> Déconnexion</a>
+            </div>
+        </aside>
+
+        <!-- Contenu principal -->
+        <main class="main-content">
+            <h1>Élèves</h1>
+            <!-- Tableau des élèves -->
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nom</th>
+                        <th>Prénom</th>
+                        <th>Genre</th>
+                        <th>Classe</th>
+                        <th>Matricule</th>
+                        <th>Âge</th>
+                        <th>Téléphone</th>
+                        <th>Ville</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Ligne 1 d'exemple -->
+                    <tr>
+                        <td>Kouadio</td>
+                        <td>Jean</td>
+                        <td>Masculin</td>
+                        <td>3ème A</td>
+                        <td>2020301</td>
+                        <td>15</td>
+                        <td>0123456789</td>
+                        <td>Abidjan</td>
+                        <td>
+                            <div class="action-buttons">
+                                <button class="btn-modifier">Modifier</button>
+                                <button class="btn-supprimer">Supprimer</button>
+                            </div>
+                        </td>
+                    </tr>
+                    <!-- Ligne 2 d'exemple -->
+                    <tr>
+                        <td>Diop</td>
+                        <td>Aminata</td>
+                        <td>Féminin</td>
+                        <td>4ème B</td>
+                        <td>2020302</td>
+                        <td>14</td>
+                        <td>0987654321</td>
+                        <td>Dakar</td>
+                        <td>
+                            <div class="action-buttons">
+                                <button class="btn-modifier">Modifier</button>
+                                <button class="btn-supprimer">Supprimer</button>
+                            </div>
+                        </td>
+                    </tr>
+                    <!-- Ligne 3 d'exemple -->
+                    <tr>
+                        <td>Toure</td>
+                        <td>Ibrahim</td>
+                        <td>Masculin</td>
+                        <td>5ème C</td>
+                        <td>2020303</td>
+                        <td>13</td>
+                        <td>0123896547</td>
+                        <td>Bamako</td>
+                        <td>
+                            <div class="action-buttons">
+                                <button class="btn-modifier">Modifier</button>
+                                <button class="btn-supprimer">Supprimer</button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </main>
+    </div>
+
+    <script>
+        // Ici, tu pourrais ajouter des scripts pour gérer les actions de modification et suppression,
+        // ou pour charger dynamiquement les données des élèves depuis une base de données ou une API.
+    </script>
+</body>
+</html>

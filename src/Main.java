@@ -172,7 +172,7 @@ public class Main {
             System.out.println("""
                 
                     *********************************************
-                              GESTION DES UTILISATEURS
+                              GESTION DES ELEVES
                     *********************************************
                 
                 MENU:

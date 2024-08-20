@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajouter un Utilisateur - Mon ETAB</title>
+    <style>
+        /* Styles globaux */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            background-color: #f8f9fa;
+        }
+
+        /* Conteneur principal */
+        .container {
+            display: flex;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 1200px;
+        }
+
+        /* Barre latérale */
+        .sidebar {
+            width: 20%;
+            border-right: 2px solid #bdc3c7;
+            padding-right: 20px;
+        }
+
+        .sidebar h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            margin: 20px 0;
+            font-size: 18px;
+        }
+
+        .sidebar ul li a {
+            text-decoration: none;
+            color: #3498db;
+            display: flex;
+            align-items: center;
+        }
+
+        .sidebar ul li a i {
+            margin-right: 10px;
+        }
+
+        .sidebar .logout {
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        /* Contenu principal pour la page Ajouter Utilisateur */
+        .main-content {
+            width: 80%;
+            padding-left: 30px;
+        }
+
+        /* Titre de la page */
+        .main-content h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        /* Formulaire d'ajout */
+        form {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 30px;
+        }
+
+        label {
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        input[type="text"], input[type="date"] {
+            margin-bottom: 20px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #bdc3c7;
+            border-radius: 5px;
+        }
+
+        /* Boutons Annuler et Enregistrer */
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+
+        .btn.cancel {
+            background-color: #e74c3c;
+            color: white;
+        }
+
+        .btn.save {
+            background-color: #2ecc71;
+            color: white;
+        }
+
+        .btn-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Barre latérale -->
+        <div class="sidebar">
+            <h1>Mon ETAB</h1>
+            <ul>
+                <li><a href="#"><i class="fas fa-user"></i> Élèves</a></li>
+                <li><a href="#"><i class="fas fa-chalkboard-teacher"></i> Professeurs</a></li>
+                <li><a href="#"><i class="fas fa-users"></i> Utilisateurs</a></li>
+                <li><a href="#"><i class="fas fa-chart-line"></i> Rapport</a></li>
+            </ul>
+            <div class="logout">
+                <a href="#"><i class="fas fa-sign-out-alt"></i> Déconnexion</a>
+            </div>
+        </div>
+
+        <!-- Contenu principal -->
+        <div class="main-content">
+            <h1>Ajouter un Utilisateur</h1>
+            <form id="addUserForm">
+                <label for="pseudo">Pseudo:</label>
+                <input type="text" id="pseudo" name="pseudo" placeholder="Entrez le pseudo">
+
+                <label for="creationDate">Date de Création:</label>
+                <input type="date" id="creationDate" name="creationDate">
+
+                <div class="btn-container">
+                    <button type="button" class="btn cancel">Annuler</button>
+                    <button type="submit" class="btn save">Enregistrer</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Inclusion de Font Awesome pour les icônes -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+    <!-- JavaScript -->
+    <script>
+        document.getElementById('addUserForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            // Logique pour ajouter l'utilisateur ici
+            alert('Utilisateur ajouté avec succès !');
+        });
+
+        // Fonctionnalité du bouton "Annuler"
+        document.querySelector('.btn.cancel').addEventListener('click', function() {
+            // Redirection ou réinitialisation du formulaire
+            document.getElementById('addUserForm').reset();
+        });
+    </script>
+</body>
+</html>

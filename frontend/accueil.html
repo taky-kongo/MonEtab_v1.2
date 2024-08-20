@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableau de bord - Mon ETAB</title>
+    <link rel="stylesheet" >
+    <style>
+        /* Styles globaux */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            background-color: #f8f9fa;
+        }
+
+        /* Conteneur principal */
+        .container {
+            display: flex;
+            background-color: gray;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 1200px;
+
+        }
+
+        /* Barre latérale */
+        .sidebar {
+            width: 20%;
+            border-right: 2px solid #bdc3c7;
+            padding-right: 20px;
+        }
+
+        .sidebar h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            margin: 20px 0;
+            font-size: 18px;
+        }
+
+        .sidebar ul li a {
+            text-decoration: none;
+            color: white;
+            display: flex;
+            align-items: center;
+        }
+
+        .sidebar ul li a i {
+            margin-right: 10px;
+        }
+
+        .sidebar .logout {
+            margin-top: 50px;
+            text-align: left;
+        }
+
+        .sidebar .logout a {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Contenu principal */
+        .main-content {
+            width: 80%;
+            padding-left: 30px;
+        }
+
+        /* Titre du tableau de bord */
+        .main-content h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        /* Styles des cartes d'information */
+        .info-cards {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+
+        .info-card {
+            background-color: #3498db;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 22%;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-card h2 {
+            margin: 0 0 10px 0;
+            font-size: 24px;
+        }
+
+        .info-card p {
+            margin: 0;
+            font-size: 18px;
+        }
+
+        /* Styles pour le diagramme circulaire */
+        .chart-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .chart-container canvas {
+            width: 50%;
+            max-width: 400px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Barre latérale -->
+        <div class="sidebar">
+            <h1>Mon ETAB</h1>
+            <ul>
+                <li><a href="#"><i class="fas fa-user"></i> Élèves</a></li>
+                <li><a href="#"><i class="fas fa-chalkboard-teacher"></i> Professeurs</a></li>
+                <li><a href="#"><i class="fas fa-users"></i> Utilisateurs</a></li>
+                <li><a href="#"><i class="fas fa-chart-line"></i> Rapport</a></li>
+            </ul>
+            <div class="logout">
+                <a href="#"><i class="fas fa-sign-out-alt"></i> Déconnexion</a>
+            </div>
+        </div>
+
+        <!-- Contenu principal -->
+        <div class="main-content">
+            <h1>Tableau de bord</h1>
+
+            <!-- Cartes d'information -->
+            <div class="info-cards">
+                <div class="info-card">
+                    <h2>Nombre d'élèves</h2>
+                    <p>750</p>
+                </div>
+                <div class="info-card">
+                    <h2>Nombre de professeurs</h2>
+                    <p>35</p>
+                </div>
+                <div class="info-card">
+                    <h2>Nombre d'utilisateurs</h2>
+                    <p>30</p>
+                </div>
+            </div>
+
+            <!-- Diagramme circulaire pour la répartition des élèves par genre -->
+            <div class="chart-container">
+                <canvas id="genderChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- Inclusion de Chart.js pour le diagramme circulaire -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Initialisation du diagramme circulaire
+        var ctx = document.getElementById('genderChart').getContext('2d');
+        var genderChart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Garçons', 'Filles'],
+                datasets: [{
+                    label: 'Répartition des élèves par genre',
+                    data: [200, 150], // Données fictives pour les garçons et les filles
+                    backgroundColor: ['orange', 'green'],
+                    borderColor: ['orange', 'green'],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false
+            }
+        });
+    </script>
+
+    <!-- Inclusion de Font Awesome pour les icônes -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html>
